@@ -10,6 +10,6 @@ describe "user can login with google" do
     expect(page).to have_content("Hello, mockuser_first")
     expect(page).to have_content("Logout")
     expect(page).to_not have_content("Login")
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(dashboard_path)
   end
 end

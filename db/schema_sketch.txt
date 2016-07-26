@@ -37,7 +37,7 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="301" y="201" name="users">
+</datatypes><table x="301" y="200" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -63,10 +63,14 @@
 <part>id</part>
 </key>
 </table>
-<table x="542" y="200" name="sites">
+<table x="531" y="200" name="sites">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -75,14 +79,22 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="site_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="sites" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="950" y="202" name="logs">
+<table x="950" y="200" name="logs">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="hive_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="hives" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
