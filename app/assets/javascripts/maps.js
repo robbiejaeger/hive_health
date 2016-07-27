@@ -31,16 +31,15 @@ function initMap(data){
                   '</div>'+
                   '<h1 id="firstHeading" class="firstHeading">' + data[i].name + '</h1>'+
                   '<div id="bodyContent">'+
-                  '<p>Marker content!</p>'+
+                  '<p>' + data[i].description + '</p>'+
                   '</div>'+
                   '</div>';
 
-        var siteLatLng = {lng: parseFloat(data[i].latitude), lat: parseFloat(data[i].longitude)};
+        var siteLatLng = {lng: parseFloat(data[i].longitude), lat: parseFloat(data[i].latitude)};
 
         var marker = new google.maps.Marker({
                 position: siteLatLng,
                 map: map,
-                title: 'Hello World!',
                 info: contentString
         });
 
