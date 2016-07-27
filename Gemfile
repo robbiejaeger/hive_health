@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
 # User google omniauth
 gem "omniauth-google-oauth2"
 
@@ -36,6 +37,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'figaro'
   gem 'capybara'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
