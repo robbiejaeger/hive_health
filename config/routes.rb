@@ -10,4 +10,10 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#destroy", as: :logout
 
   root to: 'homes#show'
+
+  namespace :api do
+    namespace :v1, defaults: {format: :json} do
+      resources :sites, only: [:index]
+    end
+  end
 end
