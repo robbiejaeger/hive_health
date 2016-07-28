@@ -8,7 +8,6 @@ $(document).ready(function(){
                 initMap(data);
               }
   });
-
 });
 
 function initMap(data){

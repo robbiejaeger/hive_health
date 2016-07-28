@@ -1,0 +1,9 @@
+<h1 class="text-center">Health Dashboard</h1>
+
+<ul>
+  <% @sites.each do |site| %>
+    <li><%= site.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a New Site", new_dashboard_site_path, class: "btn btn-primary" %>
