@@ -9,11 +9,18 @@
   <body>
     <%= render "shared/navbar" %>
 
-    <%= yield %>
+    <div class="container-fluid">
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type %> text-center alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <%= sanitize(message) %>
+        </div>
+      <% end %>
+      
+      <%= yield %>
+    </div>
   </body>
 
   <%= javascript_include_tag 'application' %>
-  <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API']%>">
-  </script>
 </html>
