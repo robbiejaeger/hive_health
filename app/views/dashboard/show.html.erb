@@ -16,13 +16,9 @@
   </div>
 </div>
 
-<ul>
-  <% @sites.each do |site| %>
-    <li><%= link_to site.name, site_path(site) %></li>
-  <% end %>
-</ul>
-
-<%= link_to "Create a New Site", new_dashboard_site_path, class: "btn btn-primary" %>
+<div class="row">
+  <%= render partial: "sites", locals: {sites: @sites} %>
+</div>
 
 <script
     src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API']%>">

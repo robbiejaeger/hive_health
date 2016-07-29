@@ -1,0 +1,17 @@
+<div class="col-md-offset-1 col-md-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">See Details of Each Site</h3>
+    </div>
+
+    <ul class="list-group">
+      <% sites.each do |site| %>
+        <%= link_to site_path(site), class: "list-group-item" do %>
+          <%= site.name %>
+          <span class="badge"><%= pluralize(2, "day") %> ago</span>
+        <% end %>
+      <% end %>
+      <%= link_to "Create a New Site", new_dashboard_site_path, class: "list-group-item text-center" %>
+    </ul>
+  </div>
+</div>
