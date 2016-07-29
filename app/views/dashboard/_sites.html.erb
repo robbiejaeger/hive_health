@@ -6,10 +6,7 @@
 
     <ul class="list-group">
       <% sites.each do |site| %>
-        <%= link_to site_path(site), class: "list-group-item" do %>
-          <%= site.name %>
-          <span class="badge"><%= pluralize(2, "day") %> ago</span>
-        <% end %>
+        <%= link_to site.name, site_path(site), class: "list-group-item" %>
       <% end %>
       <%= link_to "Create a New Site", new_dashboard_site_path, class: "list-group-item text-center" %>
     </ul>
