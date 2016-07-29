@@ -9,6 +9,7 @@ class Dashboard::SitesController < ApplicationController
 
   def create
     @site = current_user.sites.new(site_params)
+    # SiteCreator.new(@site), then make a new save method in this PORO that will send something falsy if it fails
     if @site.save
       flash[:success] = "You created a new site!"
       redirect_to dashboard_path
