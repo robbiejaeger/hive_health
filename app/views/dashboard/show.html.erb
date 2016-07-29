@@ -1,4 +1,20 @@
-<h1 class="text-center">Health Dashboard</h1>
+<h1 class="text-center">Your HiveHealth Dashboard</h1>
+
+<div class="row">
+  <div class="col-md-offset-1 col-md-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Your Hive Sites</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div id="dashboard-sites-map" data-user="<%= current_user.id %>">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <ul>
   <% @sites.each do |site| %>
@@ -7,3 +23,7 @@
 </ul>
 
 <%= link_to "Create a New Site", new_dashboard_site_path, class: "btn btn-primary" %>
+
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API']%>">
+</script>

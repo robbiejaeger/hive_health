@@ -17,7 +17,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1, defaults: {format: :json} do
-      resources :sites, only: [:index]
+      get "sites", to: "sites#index"
+      get "users/:user_id/sites", to: "users/sites#index"
     end
   end
 end
