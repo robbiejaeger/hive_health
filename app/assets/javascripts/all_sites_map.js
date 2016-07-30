@@ -40,7 +40,8 @@ $(document).ready(function(){
             var marker = new google.maps.Marker({
                     position: siteLatLng,
                     map: map,
-                    info: contentString
+                    info: contentString,
+                    icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
             });
 
             google.maps.event.addListener(marker, 'click', function(){
