@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727041128) do
+ActiveRecord::Schema.define(version: 20160730212009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hives", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "site_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["site_id"], name: "index_hives_on_site_id", using: :btree
+  end
 
   create_table "sites", force: :cascade do |t|
     t.string   "name"
@@ -41,5 +50,6 @@ ActiveRecord::Schema.define(version: 20160727041128) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "hives", "sites"
   add_foreign_key "sites", "users"
 end

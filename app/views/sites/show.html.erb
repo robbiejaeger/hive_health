@@ -3,6 +3,19 @@
 <h3>Description</h3>
 <p><%= @site.description %></p>
 
-<p>
-  There will be hives here soon...
-</p>
+<div class="col-md-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Hives at <%= @site.name %></h3>
+    </div>
+
+    <ul class="list-group">
+      <% @hives.each do |hive| %>
+        <%= link_to hive.name, site_hive_path(@site, hive), class: "list-group-item" %>
+      <% end %>
+      <% if @site.is_owner?(current_user) %>
+        <%= link_to "Add a Hive to Your Site", new_dashboard_site_hive_path(@site), class: "list-group-item text-center" %>
+      <% end %>
+    </ul>
+  </div>
+</div>

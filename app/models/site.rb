@@ -1,5 +1,6 @@
 class Site < ApplicationRecord
   belongs_to :user
+  has_many :hives
 
   validates :street, uniqueness: { scope: [:city, :state, :zip] }, on: :create
   validates :street, presence: true
@@ -13,5 +14,9 @@ class Site < ApplicationRecord
     formatted_address = "#{street}, #{city}, #{state} #{zip}"
     long_lat = Geocoder.coordinates(formatted_address)
     update(longitude: long_lat[1], latitude: long_lat[0])
+  end
+
+  def is_owner?(user)
+    user.sites.ids.include?(id)
   end
 end

@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
   resources :homes, only: [:show]
 
-  resources :sites, only: [:index, :show]
+  resources :sites, only: [:index, :show] do
+    resources :hives, only: [:show]
+  end
 
   resource :dashboard, only: [:show], :controller => "dashboard"
 
   namespace :dashboard do
-    resources :sites, only: [:new, :create, :edit, :update]
+    resources :sites, only: [:new, :create] do
+      resources :hives, only: [:new, :create]
+    end
   end
 
   get '/auth/google_oauth2', as: :google_login
