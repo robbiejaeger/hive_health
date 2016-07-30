@@ -1,5 +1,6 @@
 class Site < ApplicationRecord
   belongs_to :user
+  has_many :hives
 
   validates :street, uniqueness: { scope: [:city, :state, :zip] }, on: :create
   validates :street, presence: true
