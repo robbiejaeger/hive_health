@@ -1,3 +1,23 @@
 <h1><%= @hive.name %></h1>
 
 <h3>Description: <%= @hive.description %></h3>
+
+<div class="col-md-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Logs for at <%= @hive.name %></h3>
+    </div>
+
+    <ul class="list-group">
+      <% @logs.each do |log| %>
+        <li class="list-group-item">
+          <h5><%= log.created_at %></h5>
+          <p><%= log.notes %></p>
+        </li>
+      <% end %>
+      <% if @site.is_owner?(current_user) %>
+        <%= link_to "Submit a New Hive Log", new_dashboard_site_hive_log_path(@site, @hive), class: "list-group-item text-center" %>
+      <% end %>
+    </ul>
+  </div>
+</div>

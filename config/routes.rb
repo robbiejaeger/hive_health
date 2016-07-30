@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     resources :sites, only: [:new, :create] do
-      resources :hives, only: [:new, :create]
+      resources :hives, only: [:new, :create] do
+        resources :logs, only: [:new, :create]
+      end
     end
   end
 
