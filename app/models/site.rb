@@ -15,4 +15,8 @@ class Site < ApplicationRecord
     long_lat = Geocoder.coordinates(formatted_address)
     update(longitude: long_lat[1], latitude: long_lat[0])
   end
+
+  def is_owner?(user)
+    user.sites.ids.include?(id)
+  end
 end

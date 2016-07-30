@@ -1,0 +1,24 @@
+<div class="col-md-offset-2 col-md-8">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">Create a New Hive for Site: <%= @site.name %></h2>
+    </div>
+    <div class="panel-body">
+      <%= form_for [:dashboard, @site, @hive] do |f| %>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: "form-control", rows: 3 %>
+        </div>
+
+        <%= f.submit "Create Hive", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
