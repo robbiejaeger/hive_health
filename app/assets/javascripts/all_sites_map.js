@@ -28,10 +28,9 @@ $(document).ready(function(){
             var contentString = '<div id="content">'+
                       '<div id="siteNotice">'+
                       '</div>'+
-                      '<h1 id="firstHeading" class="firstHeading">' + data[i].name + '</h1>'+
+                      '<h1 id="firstHeading" class="firstHeading"><a href="/sites/' + data[i].id + '">' + data[i].name + '</a></h1>' +
                       '<div id="bodyContent">'+
                       '<p>' + data[i].description + '</p>'+
-                      '<a href="/sites/' + data[i].id + '">Site\'s Home Page</a>' +
                       '</div>'+
                       '</div>';
 
