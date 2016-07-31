@@ -9,3 +9,9 @@
   width: 97%;
   margin: auto;
 }
+
+.jumbotron {
+  background-image: url("https://hd.unsplash.com/photo-1444579084407-edbadf1d3795");
+  background-size: cover;
+  min-height: 500px;
+}
