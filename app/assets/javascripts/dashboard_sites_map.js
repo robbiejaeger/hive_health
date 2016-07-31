@@ -29,6 +29,16 @@ $(document).ready(function(){
               content: contentString
             });
 
+            var hiveLinks = ''
+            if (data[i].hives.length === 0){
+              hiveLinks = '<li>No hives at this location yet</li>'
+            } else {
+              for (var j = 0; j < data[i].hives.length; j++) {
+                hiveLinks += '<li><a href="/sites/' + data[i].id + '/hives/' + data[i].hives[j].id + '">' + data[i].hives[j].name + '</a> - ' +
+                '<a href="dashboard/sites/' + data[i].id + '/hives/' + data[i].hives[j].id + '/logs/new">Submit Log</a></li>'
+              }
+            }
+
             var contentString = '<div id="content">'+
                       '<div id="siteNotice">'+
                       '</div>'+
@@ -36,7 +46,7 @@ $(document).ready(function(){
                       '<div id="bodyContent">'+
                       '<p>Hives:</p>' +
                       '<ul>' +
-                      '<li>Hive Name Link - Submit Log Link</li>' +
+                      hiveLinks +
                       '</ul>'
                       '</div>'+
                       '</div>';
