@@ -1,5 +1,40 @@
 <div class="jumbotron">
   <h1>HiveHealth</h1>
-  <p>A honeycomb of bees and beekeepers</p>
-  <p><%= link_to "See Our Network", sites_path, class: "btn btn-default btn-lg" %></p>
+  <p>A honeycomb network of bees and beekeepers</p>
+  <p><%= link_to "Explore Our Network", sites_path, class: "btn btn-default btn-lg" %></p>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail well">
+      <img src="https://hd.unsplash.com/45/eDLHCtzRR0yfFtU0BQar_sylwiabartyzel_themap.jpg" alt="bee-map">
+      <div class="caption">
+        <h3>See Network of Hive Sites</h3>
+        <p>View other bee hives in your area.</p>
+        <p><%= link_to "View Hive Sites", sites_path, class: "btn btn-primary" %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail well">
+      <img src="https://hd.unsplash.com/photo-1461532257246-777de18cd58b" alt="login-to-nework">
+      <div class="caption">
+        <h3>Share Your Hive's Health</h3>
+        <p>Become part of a growing network of beekepers.</p>
+        <p><%= link_to "Login with Google", google_login_path, class: "btn btn-primary" %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail well">
+      <img src="https://hd.unsplash.com/photo-1431605695381-f4a9c3cdd150" alt="login-to-nework">
+      <div class="caption">
+        <h3>Research Hive Data</h3>
+        <p>Use our API to capture hive data over time.</p>
+        <p><%= link_to "View API Documentation", google_login_path, class: "btn btn-primary" %></p>
+      </div>
+    </div>
+  </div>
 </div>
