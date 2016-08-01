@@ -31,7 +31,8 @@ $(document).ready(function(){
 
             var hiveLinks = ''
             if (data[i].hives.length === 0){
-              hiveLinks = '<li>No hives at this location yet</li>'
+              hiveLinks = '<li>No hives at this location yet - ' +
+                          '<a href="dashboard/sites/' + data[i].id + '/hives/new">Create New Hive</a></li>'
             } else {
               for (var j = 0; j < data[i].hives.length; j++) {
                 hiveLinks += '<li><a href="/sites/' + data[i].id + '/hives/' + data[i].hives[j].id + '">' + data[i].hives[j].name + '</a> - ' +

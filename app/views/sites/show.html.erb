@@ -5,9 +5,9 @@
 
 <% if @site.user != current_user %>
   <% if current_user.following_ids.include?(@site.id) %>
-    Unfollow This Site's Hives
+    <%= link_to "Unfollow This Site's Hives", unfollow_site_path, remote: true, class: "btn btn-primary", id: "unfollow-button", data: { id: "#{@site.id}" }, method: :post %>
   <% else %>
-    Follow This Site's Hives
+    <%= link_to "Follow This Site's Hives", follow_site_path, remote: true, class: "btn btn-primary", id: "follow-button", data: { id: "#{@site.id}" }, method: :post %>
   <% end %>
 <% end %>
 
