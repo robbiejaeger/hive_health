@@ -4,6 +4,8 @@
 <p><%= @site.description %></p>
 
 <% if @site.user != current_user %>
+  <!-- Move this to presenter -->
+  <!-- link_to @presenter.following_button_text, @presenter.following_button_path, remote: true, class: "btn", @presenter.following_button_id -->
   <% if current_user.following_ids.include?(@site.id) %>
     <%= link_to "Unfollow This Site's Hives", unfollow_site_path, remote: true, class: "btn btn-primary", id: "unfollow-button", data: { id: "#{@site.id}" }, method: :post %>
   <% else %>
