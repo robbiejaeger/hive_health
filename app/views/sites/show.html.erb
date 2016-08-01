@@ -3,6 +3,14 @@
 <h3>Description</h3>
 <p><%= @site.description %></p>
 
+<% if @site.user != current_user %>
+  <% if current_user.following_ids.include?(@site.id) %>
+    Unfollow This Site's Hives
+  <% else %>
+    Follow This Site's Hives
+  <% end %>
+<% end %>
+
 <div class="col-md-4">
   <div class="panel panel-default">
     <div class="panel-heading">
