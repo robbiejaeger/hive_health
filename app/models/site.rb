@@ -1,6 +1,8 @@
 class Site < ApplicationRecord
   belongs_to :user
   has_many :hives
+  has_many :logs, through: :hives
+  has_many :follows
 
   validates :street, uniqueness: { scope: [:city, :state, :zip] }, on: :create
   validates :street, presence: true
