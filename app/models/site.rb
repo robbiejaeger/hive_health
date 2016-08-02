@@ -7,10 +7,10 @@ class Site < ApplicationRecord
   has_many :followers, through: :follower_relationships, source: :user
 
   validates :street, uniqueness: { scope: [:city, :state, :zip] }, on: :create
-  validates :street, presence: true
-  validates :city, presence: true
-  validates :state, presence: true
-  validates :zip, presence: true
+  validates :street, presence: true, on: :create
+  validates :city, presence: true, on: :create
+  validates :state, presence: true, on: :create
+  validates :zip, presence: true, on: :create
 
   after_create :convert_address_to_long_lat
 

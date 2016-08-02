@@ -1,8 +1,5 @@
 class Dashboard::SitesController < ApplicationController
 
-  def show
-  end
-
   def new
     @site = current_user.sites.new
   end
@@ -19,6 +16,17 @@ class Dashboard::SitesController < ApplicationController
     end
   end
 
+  def update
+    @site = Site.find(params[:id])
+    if @site.update(status: site_params[:status])
+      flash[:success] = "Site status changed."
+      redirect_to site_path(@site)
+    else
+      flash[:warning] = @site.errors.full_messages.join(", ")
+      redirect_to site_path(@site)
+    end
+  end
+
   private
 
   def site_params
@@ -29,6 +37,7 @@ class Dashboard::SitesController < ApplicationController
                                  :state,
                                  :zip,
                                  :longitude,
-                                 :latitude)
+                                 :latitude,
+                                 :status)
   end
 end

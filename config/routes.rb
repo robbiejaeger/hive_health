@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resource :dashboard, only: [:show], :controller => "dashboard"
 
   namespace :dashboard do
-    resources :sites, only: [:new, :create] do
+    resources :sites, only: [:new, :create, :update] do
       resources :hives, only: [:new, :create] do
         resources :logs, only: [:new, :create]
       end

@@ -54,11 +54,17 @@ $(document).ready(function(){
 
             var siteLatLng = {lng: parseFloat(data[i].longitude), lat: parseFloat(data[i].latitude)};
 
+            if (data[i].status === "Sick"){
+              var statusMarkerIcon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
+            } else {
+              var statusMarkerIcon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+            }
+
             var marker = new google.maps.Marker({
                     position: siteLatLng,
                     map: map,
                     info: contentString,
-                    icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+                    icon: statusMarkerIcon
             });
 
             bounds.extend(marker.getPosition());
