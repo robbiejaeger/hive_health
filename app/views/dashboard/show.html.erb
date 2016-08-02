@@ -18,7 +18,10 @@
 
 <div class="row">
   <%= render partial: "sites", locals: {sites: @sites} %>
+
+  <%= render partial: "sites_following", locals: {sites_following_logs: @sites_following_logs} %>
 </div>
+
 
 <script
     src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API']%>">

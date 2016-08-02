@@ -1,6 +1,10 @@
 class Site < ApplicationRecord
   belongs_to :user
   has_many :hives
+  has_many :logs, through: :hives
+
+  has_many :follower_relationships, foreign_key: :site_id, class_name: 'Follow'
+  has_many :followers, through: :follower_relationships, source: :user
 
   validates :street, uniqueness: { scope: [:city, :state, :zip] }, on: :create
   validates :street, presence: true

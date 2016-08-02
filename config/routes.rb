@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     end
   end
 
+  post ':id/follow_site', to: "relationships#follow_site", as: :follow_site
+  post ':id/unfollow_site', to: "relationships#unfollow_site", as: :unfollow_site
+
   get '/auth/google_oauth2', as: :google_login
   get '/auth/google_oauth2/callback', to: "sessions#create"
   delete '/logout', to: "sessions#destroy", as: :logout
