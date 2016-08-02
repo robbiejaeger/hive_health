@@ -1,0 +1,16 @@
+<div class="col-md-offset-1 col-md-5">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Logs of Sites You Are Following</h3>
+    </div>
+
+    <ul class="list-group">
+      <% sites_following_logs.each do |log| %>
+        <li class="list-group-item">
+          <%= log.created_at %><br>
+          <%= log.hive.name %>: <%= log.notes %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

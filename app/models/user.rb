@@ -23,4 +23,10 @@ class User < ApplicationRecord
   def unfollow(site)
     following_relationships.find_by(site: site).destroy
   end
+
+  def logs_of_followed_sites
+    following.map do |hive|
+      hive.logs
+    end.flatten
+  end
 end

@@ -1,10 +1,4 @@
 $(document).ready(function(){
-  // $.ajax({
-  //
-  // }).done(function() {
-  //   $( this ).addClass( "done" );
-  // });
-
   $("body").on("ajax:success", "#follow-button", function(){
     $(this).text('Unfollow This Site\'s Hives');
     $(this).attr('href', '/' + $(this).data("id") + '/unfollow_site');
