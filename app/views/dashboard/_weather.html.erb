@@ -1,0 +1,24 @@
+<div class="col-md-offset-1 col-md-10">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Weather For First Site...</h3>
+    </div>
+
+    <table class="table table-bordered">
+      <tr>
+        <% weather_days.each do |day| %>
+          <th class="col-md-1"><%= day.date_formatted %></th>
+        <% end %>
+      </tr>
+
+      <tr>
+        <% weather_days.each do |day| %>
+          <td class="col-md-1">
+            <%= day.summary %><br><br>
+            Low: <%= day.temperatureMin %> F<br>
+            High: <%= day.temperatureMax %> F</td>
+        <% end %>
+      </tr>
+    </table>
+  </div>
+</div>

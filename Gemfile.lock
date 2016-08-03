@@ -221,6 +221,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   factory_girl_rails
   faker
+  faraday
   figaro
   geocoder
   jbuilder (~> 2.5)
