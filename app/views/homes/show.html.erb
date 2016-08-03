@@ -22,7 +22,11 @@
       <div class="caption">
         <h3>Share Your Hive's Health</h3>
         <p>Become part of a growing network of beekepers.</p>
-        <p><%= link_to "Login with Google", google_login_path, class: "btn btn-primary" %></p>
+        <% if current_user %>
+          <p><%= link_to "Go to Your Dashboard", dashboard_path, class: "btn btn-primary" %></p>
+        <% else %>
+          <p><%= link_to "Login with Google", google_login_path, class: "btn btn-primary" %></p>
+        <% end %>
       </div>
     </div>
   </div>
@@ -33,7 +37,7 @@
       <div class="caption">
         <h3>Research Hive Data</h3>
         <p>Use our API to capture hive data over time.</p>
-        <p><%= link_to "View API Documentation", google_login_path, class: "btn btn-primary" %></p>
+        <p><%= link_to "View API Documentation", sites_path, class: "btn btn-primary" %></p>
       </div>
     </div>
   </div>
