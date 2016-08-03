@@ -1,5 +1,13 @@
 <h1 class="text-center"><%= @site.name %></h1>
 
+<% if @site.user == current_user %>
+  <% if @site.status == "Healthy" %>
+    <%= link_to "Set Site Status as Sick", dashboard_site_path(@site, site: {status: "Sick"}), method: :put, class: "status-link btn btn-danger" %>
+  <% else %>
+    <%= link_to "Set Site Status as Healthy", dashboard_site_path(@site, site: {status: "Healthy"}), method: :put, class: "status-link btn btn-success" %>
+  <% end %>
+<% end %>
+
 <h3>Description</h3>
 <p><%= @site.description %></p>
 
@@ -23,13 +31,13 @@
       <% @hives.each do |hive| %>
         <li class="list-group-item">
           <%= link_to hive.name, site_hive_path(@site, hive) %>
-          <% if @site.is_owner?(current_user) %>
-            <%= link_to "New Log", new_dashboard_site_hive_log_path(@site, hive), class: "new-log-link" %>
+          <% if @site.user == current_user %>
+            <%= link_to "New Log", new_dashboard_site_hive_log_path(@site, hive), class: "new-log-link btn btn-primary" %>
           <% end %>
         </li>
       <% end %>
 
-      <% if @site.is_owner?(current_user) %>
+      <% if @site.user == current_user %>
         <%= link_to "Add a Hive to Your Site", new_dashboard_site_hive_path(@site), class: "list-group-item text-center" %>
       <% end %>
     </ul>
