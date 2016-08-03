@@ -1,5 +1,9 @@
 <h1 class="text-center"><%= @site.name %></h1>
 
+<div class="row">
+  <%= render partial: "weather", locals: {weather_days: @weather_days, site: @site} %>
+</div>
+
 <% if @site.user == current_user %>
   <% if @site.status == "Healthy" %>
     <%= link_to "Set Site Status as Sick", dashboard_site_path(@site, site: {status: "Sick"}), method: :put, class: "status-link btn btn-danger" %>
