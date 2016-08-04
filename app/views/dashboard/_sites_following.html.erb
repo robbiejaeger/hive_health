@@ -12,7 +12,7 @@
       <% else %>
         <% sites_following_logs.each do |log| %>
           <li class="list-group-item">
-            <%= log.created_at %><br>
+            <%= log.created_at.strftime("%B %-d, %Y %l:%M%P") %><br>
             <%= log.hive.name %>: <%= log.notes %>
           </li>
         <% end %>
