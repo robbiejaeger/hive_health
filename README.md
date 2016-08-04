@@ -21,7 +21,7 @@ If you want to follow all of the logs for a site, then you can go to that site's
 
 ## Repository Setup Instructions
 You will need to have API keys for Google+, Google Maps, and the Dark Sky Forecast API.
-Â
+
 To clone this repository, use this command in your terminal:
 ```
 git clone https://github.com/robbiejaeger/hive_health.git
