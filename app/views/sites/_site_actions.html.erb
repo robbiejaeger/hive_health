@@ -1,0 +1,13 @@
+<% if @site.user == current_user %>
+  <% if @site.status == "Healthy" %>
+    <%= link_to "Set Site Status as Sick", dashboard_site_path(@site, site: {status: "Sick"}), method: :put, class: "btn btn-danger" %>
+  <% else %>
+    <%= link_to "Set Site Status as Healthy", dashboard_site_path(@site, site: {status: "Healthy"}), method: :put, class: "btn btn-success" %>
+  <% end %>
+<% else %>
+  <% if current_user.following_ids.include?(@site.id) %>
+    <%= link_to "Unfollow This Site's Hives", unfollow_site_path, remote: true, class: "btn btn-primary", id: "unfollow-button", data: { id: "#{@site.id}" }, method: :post %>
+  <% else %>
+    <%= link_to "Follow This Site's Hives", follow_site_path, remote: true, class: "btn btn-primary", id: "follow-button", data: { id: "#{@site.id}" }, method: :post %>
+  <% end %>
+<% end %>
