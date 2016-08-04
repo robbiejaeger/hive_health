@@ -7,7 +7,7 @@ FactoryGirl.define do
     state "IL"
     zip "60018"
     user_id 1
-    status "Healthy"
+    status "healthy"
   end
 
   factory :hive do

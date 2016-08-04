@@ -21,7 +21,7 @@ RSpec.feature "user can create a new site" do
     expect(current_path).to eq(site_path(Site.first))
     expect(page).to have_content("TestName")
     expect(page).to have_content("About TestName:")
-    expect(page).to have_content("Set Site Status as Healthy")
+    expect(page).to have_content("Set Site Status as Sick")
   end
 
   scenario "they enter incomplete site attributes" do
