@@ -37,7 +37,7 @@ $(document).ready(function(){
 
         var siteLatLng = {lng: parseFloat(data.longitude), lat: parseFloat(data.latitude)};
 
-        if (data.status === "Sick"){
+        if (data.status === "sick"){
           var statusMarkerIcon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
         } else {
           var statusMarkerIcon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
