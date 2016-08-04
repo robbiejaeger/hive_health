@@ -11,9 +11,10 @@
 }
 
 #site-show-map {
-  height: 250px;
+  height: 300px;
   width: 50%;
   float: right;
+  border: 1px solid #bfbfbf;
 }
 
 .jumbotron {
