@@ -1,15 +1,21 @@
 <div class="col-md-6">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h3 class="panel-title">Logs of Sites You're Following</h3>
+      <h3 class="panel-title">Logs of Sites You Are Following</h3>
     </div>
 
     <ul class="list-group">
-      <% sites_following_logs.each do |log| %>
-        <li class="list-group-item">
-          <%= log.created_at %><br>
-          <%= log.hive.name %>: <%= log.notes %>
-        </li>
+      <% if current_user.following.empty? %>
+        <li class="list-group-item">You are not following any sites</li>
+      <% elsif sites_following_logs.empty? %>
+        <li class="list-group-item">The sites you are following do not have any logs yet</li>
+      <% else %>
+        <% sites_following_logs.each do |log| %>
+          <li class="list-group-item">
+            <%= log.created_at %><br>
+            <%= log.hive.name %>: <%= log.notes %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>

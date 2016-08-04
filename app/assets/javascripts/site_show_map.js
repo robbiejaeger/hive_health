@@ -17,7 +17,7 @@ $(document).ready(function(){
 
       var map = new google.maps.Map(mapDiv, {
           center: {lng: parseFloat(data.longitude), lat: parseFloat(data.latitude)},
-          zoom: 5
+          zoom: 12
       });
 
       var setMarkers = function(data){

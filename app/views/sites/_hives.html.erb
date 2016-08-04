@@ -1,0 +1,27 @@
+<div class="col-md-offset-1 col-md-4">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Hives at <%= @site.name %></h3>
+    </div>
+
+    <ul class="list-group">
+      <% if @hives.empty? %>
+        <li class="list-group-item">No hives at this site yet</li>
+      <% else %>
+        <% @hives.each do |hive| %>
+          <li class="list-group-item">
+            <%= link_to hive.name, site_hive_path(@site, hive) %>
+            <% if @site.user == current_user %>
+              <%= link_to "New Log", new_dashboard_site_hive_log_path(@site, hive), class: "new-log-link btn btn-default" %>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+
+      <% if @site.user == current_user %>
+        <%= link_to "Add a Hive to Your Site", new_dashboard_site_hive_path(@site), class: "list-group-item text-center" %>
+      <% end %>
+    </ul>
+
+  </div>
+</div>
