@@ -20,12 +20,14 @@
         <h3 class="panel-title">Logs for at <%= @hive.name %></h3>
       </div>
       <ul class="list-group">
+
         <% @logs.each do |log| %>
           <li class="list-group-item">
             <h5><%= log.created_at.strftime("%B %-d, %Y %k:%M%P") %></h5>
             <p><%= simple_format(log.notes) %></p>
           </li>
         <% end %>
+
       </ul>
     </div>
   </div>
