@@ -1,24 +1,56 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+user1 = User.create!(first_name: "Jim",
+                    last_name: "Smith",
+                    email: "jimsmith@example.com")
+user2 = User.create!(first_name: "Jim",
+                     last_name: "Smith",
+                     email: "jimsmith@example.com")
 
-Site.create!(name: "Green Hills Farm",
+
+site1 = Site.create!(name: "Green Hills Farm",
             description: "Hives for polinating grove trees.",
-            longitude: "-87.6298",
-            latitude: "41.8781")
-Site.create!(name: "Ft Collins Hives",
-            description: "All the hives are here for you.",
-            longitude: "-105.0844",
-            latitude: "40.5853")
-Site.create!(name: "The Denver Collonies",
-            description: "Not what you think, but the bees are awesome here.",
-            longitude: "-104.9903",
-            latitude: "39.7392")
-Site.create!(name: "Seattle Site",
+            street: "1000 Lake Cook Rd",
+            city: "Glencoe",
+            state: "IL",
+            zip: "60022",
+            user: user1)
+site2 = Site.create!(name: "Ft Collins Hives",
+            description: "Hives to help the brews.",
+            street: "500 Linden St",
+            city: "Fort Collins",
+            state: "CO",
+            zip: "80524",
+            user: user2)
+site3 = Site.create!(name: "The Denver Hives",
+            description: "Bees that help us code.",
+            street: "1510 Blake Street",
+            city: "Denver",
+            state: "CO",
+            zip: "80202",
+            user: user2)
+site4 = Site.create!(name: "Seattle Site",
             description: "The bees moved here from Portland.",
-            longitude: "-122.3321",
-            latitude: "47.6062")
+            street: "410 Terry Ave N",
+            city: "Seattle",
+            state: "WA",
+            zip: "98109",
+            user: user1)
+
+hive1 = Hive.create!(name: "Happy Bees",
+                     description: "Where happy honey is made.",
+                     site: site1)
+hive2 = Hive.create!(name: "Bees for the Apple Trees",
+                    description: "They serve this entire grove.",
+                    site: site2)
+hive3 = Hive.create!(name: "Bees for the Cherry Trees",
+                     description: "These bees pollinate all of the cherry trees.",
+                     site: site2)
+hive4 = Hive.create!(name: "Hives at rose garden",
+                     description: "This is an experimental hive to help pollinate the rose bushes.",
+                     site: site3)
+
+log1 = hive1.logs.create!(notes: "A great day for the bees today!")
+log2 = hive1.logs.create!(notes: "All of the frames were completely built up today.")
+log3 = hive2.logs.create!(notes: "We had initial trouble with mites, but the mites are not an issue anymore.")
+log4 = hive3.logs.create!(notes: "Another great day for the bees today!")
+log5 = hive4.logs.create!(notes: "The bees aren't very active today, but weather might be a factor.")
+log6 = hive4.logs.create!(notes: "They are finally more active today. Looking great.")

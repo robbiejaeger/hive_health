@@ -6,7 +6,8 @@ class Dashboard::HivesController < ApplicationController
   end
 
   def create
-    @hive = Site.find(params[:site_id]).hives.new(hive_params)
+    @site = Site.find(params[:site_id])
+    @hive = @site.hives.new(hive_params)
     if @hive.save
       flash[:success] = "Created a new hive!"
       redirect_to site_hive_path(@hive.site, @hive)

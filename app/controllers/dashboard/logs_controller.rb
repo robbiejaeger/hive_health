@@ -7,6 +7,7 @@ class Dashboard::LogsController < ApplicationController
   end
 
   def create
+    @site = Site.find(params[:site_id])
     @hive = Hive.find(params[:hive_id])
     @log = @hive.logs.new(log_params)
     if @log.save
