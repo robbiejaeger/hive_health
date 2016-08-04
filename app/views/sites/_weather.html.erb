@@ -15,8 +15,8 @@
         <% weather_days.each do |day| %>
           <td class="col-md-1">
             <%= day.summary %><br><br>
-            Low: <%= day.temperatureMin %> F<br>
-            High: <%= day.temperatureMax %> F</td>
+            Low: <%= day.temperatureMin.round(1) %> F<br>
+            High: <%= day.temperatureMax.round(1) %> F</td>
         <% end %>
       </tr>
     </table>
