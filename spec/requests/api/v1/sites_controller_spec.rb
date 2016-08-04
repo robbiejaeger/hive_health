@@ -15,4 +15,19 @@ describe "Sites Request" do
       expect(parsed_sites.count).to eq(3)
     end
   end
+
+  describe "Get #show" do
+    it "returns a site" do
+      user = create(:user)
+      site = create(:site, user: user)
+
+      get "/api/v1/sites/#{site.id}"
+
+      expect(response.status).to eq(200)
+
+      parsed_site = JSON.parse(response.body)
+
+      expect(parsed_site.count).to eq(10)
+    end
+  end
 end

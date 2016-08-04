@@ -52,6 +52,9 @@ end
 
 group :test do
   gem 'simplecov'
+  gem 'database_cleaner'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
