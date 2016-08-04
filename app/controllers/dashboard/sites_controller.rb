@@ -17,13 +17,9 @@ class Dashboard::SitesController < ApplicationController
 
   def update
     @site = Site.find(params[:id])
-    if @site.update(status: site_params[:status])
-      flash[:success] = "Site status changed."
-      redirect_to site_path(@site)
-    else
-      flash[:warning] = @site.errors.full_messages.join(", ")
-      redirect_to site_path(@site)
-    end
+    @site.update(status: site_params[:status])
+    flash[:success] = "Site status changed."
+    redirect_to site_path(@site)
   end
 
   private

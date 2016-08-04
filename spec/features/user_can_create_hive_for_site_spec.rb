@@ -24,4 +24,23 @@ RSpec.feature "user can create a new site" do
     expect(page).to have_content("Logs for TestName")
     expect(page).to have_content("No logs for this hive yet")
   end
+
+  scenario "they get an error for incomplete attributes" do
+    user = create(:user)
+    site = create(:site, user: user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit dashboard_path
+
+    click_on site.name
+    expect(page).to have_content("No hives at this site yet")
+
+    click_on "Add a Hive to Your Site"
+
+    fill_in "Description", with: "TestDescription"
+
+    click_on "Create Hive"
+
+    expect(page).to have_content("Name can't be blank")
+  end
 end

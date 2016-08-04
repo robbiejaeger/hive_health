@@ -1,8 +1,8 @@
 <% if @site.user == current_user %>
-  <% if @site.status == "Healthy" %>
-    <%= link_to "Set Site Status as Sick", dashboard_site_path(@site, site: {status: "Sick"}), method: :put, class: "btn btn-danger" %>
+  <% if @site.status == "healthy" %>
+    <%= link_to "Set Site Status as Sick", dashboard_site_path(@site, site: {status: "sick"}), method: :put, class: "btn btn-danger" %>
   <% else %>
-    <%= link_to "Set Site Status as Healthy", dashboard_site_path(@site, site: {status: "Healthy"}), method: :put, class: "btn btn-success" %>
+    <%= link_to "Set Site Status as Healthy", dashboard_site_path(@site, site: {status: "healthy"}), method: :put, class: "btn btn-success" %>
   <% end %>
 <% else %>
   <% if current_user.following_ids.include?(@site.id) %>

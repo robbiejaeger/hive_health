@@ -21,4 +21,19 @@ RSpec.feature "user can create log for a hive" do
     expect(page).to have_content("Logs for #{hive.name}")
     expect(page).to_not have_content("No logs for this hive yet")
   end
+
+  scenario "they cannot log with incomplete attributes" do
+    user = create(:user)
+    site = create(:site, user: user)
+    hive = create(:hive, site: site)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit site_hive_path(site.id, hive.id)
+
+    click_on "Submit a New Hive Log"
+
+    click_on "Submit Hive Log"
+
+    expect(page).to have_content("Notes can't be blank")
+  end
 end
