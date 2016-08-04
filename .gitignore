@@ -21,3 +21,6 @@
 
 # Ignore simplecov logs
 /coverage
+
+# Ignore VCR cassettes
+/spec/cassettes
