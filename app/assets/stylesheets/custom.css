@@ -10,6 +10,12 @@
   margin: auto;
 }
 
+#site-show-map {
+  height: 250px;
+  width: 50%;
+  float: right;
+}
+
 .jumbotron {
   background-image: url("https://hd.unsplash.com/photo-1444579084407-edbadf1d3795");
   background-size: cover;

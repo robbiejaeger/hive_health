@@ -1,23 +1,32 @@
-<h1><%= @hive.name %></h1>
+<h1 class="text-center"><%= @hive.name %></h1>
 
-<h3>Description: <%= @hive.description %></h3>
+<div class="row">
+  <div class="col-md-offset-1 col-md-10">
+    <div class="well">
+      <h3>Hive Info</h3>
+      <p><%= @hive.description %></p>
 
-<% if @site.user == current_user %>
-  <%= link_to "Submit a New Hive Log", new_dashboard_site_hive_log_path(@site, @hive), class: "btn btn-primary" %>
-<% end %>
-
-<div class="col-md-4">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Logs for at <%= @hive.name %></h3>
-    </div>
-    <ul class="list-group">
-      <% @logs.each do |log| %>
-        <li class="list-group-item">
-          <h5><%= log.created_at %></h5>
-          <p><%= log.notes %></p>
-        </li>
+      <% if @site.user == current_user %>
+        <%= link_to "Submit a New Hive Log", new_dashboard_site_hive_log_path(@site, @hive), class: "btn btn-success" %>
       <% end %>
-    </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-offset-1 col-md-10">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Logs for at <%= @hive.name %></h3>
+      </div>
+      <ul class="list-group">
+        <% @logs.each do |log| %>
+          <li class="list-group-item">
+            <h5><%= log.created_at.strftime("%B %-d, %Y %k:%M%P") %></h5>
+            <p><%= simple_format(log.notes) %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
