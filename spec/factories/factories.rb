@@ -7,6 +7,13 @@ FactoryGirl.define do
     state "IL"
     zip "60018"
     user_id 1
+    status "Healthy"
+  end
+
+  factory :hive do
+    name { Faker::Address.street_name }
+    description { Faker::Lorem.paragraph }
+    site_id 1
   end
 
   sequence :street do |n|

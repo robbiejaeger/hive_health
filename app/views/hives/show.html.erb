@@ -17,15 +17,19 @@
   <div class="col-md-offset-1 col-md-10">
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h3 class="panel-title">Logs for at <%= @hive.name %></h3>
+        <h3 class="panel-title">Logs for <%= @hive.name %></h3>
       </div>
       <ul class="list-group">
 
-        <% @logs.each do |log| %>
-          <li class="list-group-item">
-            <h5><%= log.created_at.strftime("%B %-d, %Y %k:%M%P") %></h5>
-            <p><%= simple_format(log.notes) %></p>
-          </li>
+        <% if @logs.empty? %>
+          <li class="list-group-item">No logs for this hive yet</li>
+        <% else %>
+          <% @logs.each do |log| %>
+            <li class="list-group-item">
+              <h5><%= log.created_at.strftime("%B %-d, %Y %l:%M%P") %></h5>
+              <p><%= simple_format(log.notes) %></p>
+            </li>
+          <% end %>
         <% end %>
 
       </ul>
