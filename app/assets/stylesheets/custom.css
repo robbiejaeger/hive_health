@@ -17,6 +17,14 @@
   border: 1px solid #bfbfbf;
 }
 
+.healthy {
+  color: #00aa00;
+}
+
+.sick {
+  color: #dd0000;
+}
+
 .jumbotron {
   background-image: url("https://hd.unsplash.com/photo-1444579084407-edbadf1d3795");
   background-size: cover;
