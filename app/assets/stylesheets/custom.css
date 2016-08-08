@@ -17,6 +17,11 @@
   border: 1px solid #bfbfbf;
 }
 
+.site-image {
+  padding: 2px;
+  border: 1px solid #bfbfbf;
+}
+
 .site-actions {
   margin-top: 30px;
 }
