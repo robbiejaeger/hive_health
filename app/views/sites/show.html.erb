@@ -11,7 +11,9 @@
 
         <%= image_tag @site.site_img.url(:medium) %>
 
-        <%= render partial: "site_actions", locals: {site: @site} %>
+        <div class="site-actions">
+          <%= render partial: "site_actions", locals: {site: @site} %>
+        </div>
       </div>
   </div>
 </div>

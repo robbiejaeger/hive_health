@@ -17,6 +17,10 @@
   border: 1px solid #bfbfbf;
 }
 
+.site-actions {
+  margin-top: 30px;
+}
+
 .healthy {
   color: #00aa00;
 }
