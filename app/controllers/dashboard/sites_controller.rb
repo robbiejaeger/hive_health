@@ -23,16 +23,16 @@ class Dashboard::SitesController < ApplicationController
   end
 
   private
-
-  def site_params
-    params.require(:site).permit(:name,
-                                 :description,
-                                 :street,
-                                 :city,
-                                 :state,
-                                 :zip,
-                                 :longitude,
-                                 :latitude,
-                                 :status)
-  end
+    def site_params
+      params.require(:site).permit(:name,
+                                   :description,
+                                   :street,
+                                   :city,
+                                   :state,
+                                   :zip,
+                                   :longitude,
+                                   :latitude,
+                                   :status,
+                                   :site_img)
+    end
 end
