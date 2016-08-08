@@ -46,6 +46,13 @@
           </div>
         </div>
 
+        <div class="row">
+          <div class="form-group">
+            <%= f.label :site_img %>
+            <%= f.file_field :site_img, class: "form-control" %>
+          </div>
+        </div>
+
         <%= f.submit "Create Site", class: "btn btn-primary" %>
       <% end %>
     </div>

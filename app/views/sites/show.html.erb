@@ -9,6 +9,8 @@
         <h3>About <%= @site.name %>:</h3>
         <p><%= @site.description %></p>
 
+        <% image_tag @site.site_img.url(:square) %>
+
         <%= render partial: "site_actions", locals: {site: @site} %>
       </div>
   </div>
