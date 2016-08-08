@@ -6,7 +6,7 @@ class Site < ApplicationRecord
   has_many :follower_relationships, foreign_key: :site_id, class_name: 'Follow'
   has_many :followers, through: :follower_relationships, source: :user
 
-  has_attached_file :site_img, style: {
+  has_attached_file :site_img, styles: {
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'

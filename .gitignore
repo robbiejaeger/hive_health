@@ -24,3 +24,6 @@
 
 # Ignore VCR cassettes
 /spec/cassettes
+
+# Ignore Paperclip images
+/public/system

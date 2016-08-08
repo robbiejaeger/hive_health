@@ -9,7 +9,7 @@
         <h3>About <%= @site.name %>:</h3>
         <p><%= @site.description %></p>
 
-        <% image_tag @site.site_img.url(:square) %>
+        <%= image_tag @site.site_img.url(:medium) %>
 
         <%= render partial: "site_actions", locals: {site: @site} %>
       </div>
