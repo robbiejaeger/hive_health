@@ -2,8 +2,13 @@ class Dashboard::LogsController < ApplicationController
 
   def new
     @site = Site.find(params[:site_id])
-    @hive = Hive.find(params[:hive_id])
-    @log = Log.new
+    if @site.user != current_user
+      flash[:warning] = "Not authorized."
+      redirect_to root_path
+    else
+      @hive = Hive.find(params[:hive_id])
+      @log = Log.new
+    end
   end
 
   def create
@@ -22,6 +27,6 @@ class Dashboard::LogsController < ApplicationController
   private
 
   def log_params
-    params.require(:log).permit(:notes)
+    params.require(:log).permit(:notes, :log_img)
   end
 end
