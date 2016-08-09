@@ -1,13 +1,13 @@
 <div class="col-md-offset-2 col-md-8">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h2 class="panel-title">Create a New Hives Site</h2>
+      <h2 class="panel-title">Edit This Site</h2>
     </div>
     <div class="panel-body">
       <%= form_for [:dashboard, @site], multipart: true do |f| %>
         <%= render partial: "form", locals: {f: f} %>
 
-        <%= f.submit "Create Site", class: "btn btn-primary" %>
+        <%= f.submit "Edit Site", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

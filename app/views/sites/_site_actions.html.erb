@@ -4,6 +4,7 @@
   <% else %>
     <%= link_to "Set Site Status as Healthy", dashboard_site_path(@site, site: {status: "healthy"}), method: :put, class: "btn btn-success" %>
   <% end %>
+  <%= link_to "Edit Site Information", edit_dashboard_site_path(@site), class: "btn btn-default" %>
 <% else %>
   <% if current_user.following_ids.include?(@site.id) %>
     <%= link_to "Unfollow This Site's Hives", unfollow_site_path, remote: true, class: "btn btn-primary", id: "unfollow-button", data: { id: "#{@site.id}" }, method: :post %>

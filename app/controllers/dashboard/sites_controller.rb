@@ -15,11 +15,20 @@ class Dashboard::SitesController < ApplicationController
     end
   end
 
+  def edit
+    @site = Site.find(params[:id])
+    if @site.user != current_user
+      flash[:warning] = "Not authrorized."
+      redirect_to root_path
+    end
+  end
+
   def update
     @site = Site.find(params[:id])
-    @site.update(status: site_params[:status])
-    flash[:success] = "Site status changed."
-    redirect_to site_path(@site)
+    if @site.update(site_params)
+      flash[:success] = "Site information changed."
+      redirect_to site_path(@site)
+    end
   end
 
   private

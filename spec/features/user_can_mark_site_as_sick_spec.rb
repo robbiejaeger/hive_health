@@ -10,7 +10,7 @@ RSpec.feature "user can mark a site as sick" do
 
     click_on "Set Site Status as Sick"
 
-    expect(page).to have_content("Site status changed.")
+    expect(page).to have_content("Site information changed.")
     expect(page).to have_content("Set Site Status as Healthy")
     expect(page).to_not have_content("Set Site Status as Sick")
   end
