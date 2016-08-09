@@ -28,7 +28,9 @@
             <li class="list-group-item">
               <h5><%= log.created_at.strftime("%B %-d, %Y %l:%M%P") %></h5>
               <p><%= simple_format(log.notes) %></p>
-              <%= image_tag log.log_img.url(:large), class: "log-image" %>
+              <% if log.log_img.present? %>
+                <%= image_tag log.log_img.url(:large), class: "log-image" %>
+              <% end %>
             </li>
           <% end %>
         <% end %>
