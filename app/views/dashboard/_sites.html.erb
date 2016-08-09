@@ -6,7 +6,10 @@
 
     <ul class="list-group">
       <% sites.each do |site| %>
-        <%= link_to site.name, site_path(site), class: "list-group-item" %>
+        <li class="list-group-item">
+          <%= link_to site.name, site_path(site) %>
+          <%= link_to "Edit Site", edit_dashboard_site_path(site), class: "btn btn-default" %>
+        </li>
       <% end %>
       <%= link_to "Create a New Site", new_dashboard_site_path, class: "list-group-item text-center" %>
     </ul>
