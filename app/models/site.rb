@@ -21,11 +21,12 @@ class Site < ApplicationRecord
   validates :state, presence: true, on: :create
   validates :zip, presence: true, on: :create
 
-  after_create :convert_address_to_long_lat
+  after_save :convert_address_to_long_lat
 
   def convert_address_to_long_lat
     formatted_address = "#{street}, #{city}, #{state} #{zip}"
     long_lat = Geocoder.coordinates(formatted_address)
-    update(longitude: long_lat[1], latitude: long_lat[0])
+    update_column(:longitude, long_lat[1])
+    update_column(:latitude, long_lat[0])
   end
 end
