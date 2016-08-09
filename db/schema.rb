@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808154029) do
+ActiveRecord::Schema.define(version: 20160809150927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,12 @@ ActiveRecord::Schema.define(version: 20160808154029) do
   create_table "logs", force: :cascade do |t|
     t.text     "notes"
     t.integer  "hive_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "log_img_file_name"
+    t.string   "log_img_content_type"
+    t.integer  "log_img_file_size"
+    t.datetime "log_img_updated_at"
     t.index ["hive_id"], name: "index_logs_on_hive_id", using: :btree
   end
 

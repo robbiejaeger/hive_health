@@ -22,6 +22,6 @@ class Dashboard::LogsController < ApplicationController
   private
 
   def log_params
-    params.require(:log).permit(:notes)
+    params.require(:log).permit(:notes, :log_img)
   end
 end
