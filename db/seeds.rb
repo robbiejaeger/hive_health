@@ -1,10 +1,11 @@
-user1 = User.create!(first_name: "Jim",
+user2 = User.create!(uid: "123456788",
+                    first_name: "Jim",
                     last_name: "Smith",
                     email: "jimsmith@example.com")
-user2 = User.create!(first_name: "Jim",
+user3 = User.create!(uid: "123456789",
+                     first_name: "Jim",
                      last_name: "Smith",
                      email: "jimsmith@example.com")
-
 
 site1 = Site.create!(name: "Green Hills Farm",
             description: "Hives for polinating grove trees.",

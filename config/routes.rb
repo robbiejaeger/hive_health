@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :homes, only: [:show]
+  resources :homes, only: [:index]
+  resources :docs, only: [:index]
 
   resources :sites, only: [:index, :show] do
     resources :hives, only: [:show]
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2/callback', to: "sessions#create"
   delete '/logout', to: "sessions#destroy", as: :logout
 
-  root to: 'homes#show'
+  root to: 'homes#index'
 
   namespace :api do
     namespace :v1, defaults: {format: :json} do

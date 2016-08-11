@@ -44,3 +44,12 @@
   background-size: cover;
   min-height: 500px;
 }
+
+div .api {
+  padding-left: 1em;
+  padding-bottom: 1em;
+}
+
+.api-code {
+  color: #555;
+}
