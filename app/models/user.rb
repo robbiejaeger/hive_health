@@ -19,8 +19,17 @@ class User < ApplicationRecord
   end
 
   def generate_api_key
-    token = Digest::SHA2.new << "#{uid}#{email}"
+    token = generate_token(self).to_s
     self.api_key = token.to_s
+  end
+
+  def generate_new_api_key
+    token = generate_token(self).to_s
+    update(api_key: token)
+  end
+
+  def generate_token(user)
+    Digest::SHA2.new << "#{user.uid}#{user.email}#{rand(100000)}"
   end
 
   def follow(site)
