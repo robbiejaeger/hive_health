@@ -6,7 +6,7 @@ describe "Sites Request" do
       user = create(:user)
       sites = create_list(:site, 3, user: user)
 
-      get "/api/v1/sites"
+      get "/api/v1/sites", headers: {'Authorization' => "Token token=#{user.api_key}"}
 
       expect(response.status).to eq(200)
 
@@ -21,7 +21,7 @@ describe "Sites Request" do
       user = create(:user)
       site = create(:site, user: user)
 
-      get "/api/v1/sites/#{site.id}"
+      get "/api/v1/sites/#{site.id}", headers: {'Authorization' => "Token token=#{user.api_key}"}
 
       expect(response.status).to eq(200)
 

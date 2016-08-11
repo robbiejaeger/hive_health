@@ -6,7 +6,7 @@ describe "User Sites Request" do
       user = create(:user)
       sites = create_list(:site, 3, user: user)
 
-      get "/api/v1/users/#{user.id}/sites"
+      get "/api/v1/users/#{user.id}/sites", headers: {'Authorization' => "Token token=#{user.api_key}"}
 
       expect(response.status).to eq(200)
 
